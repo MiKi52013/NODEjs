@@ -12,9 +12,18 @@ module.exports = {
      * }], {});
     */
     return queryInterface.bulkInsert('Users', [{
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'example@example.com',
+
+      email: 'admin@gmail.com',
+      password: '123456', //plain text dfhjdhfbbgfsdh => hash password
+      firstName: 'Movex',
+      lastName: 'MiKi',
+      address: 'USA',
+      phoneNumber: '123456789',
+      gender: 1,
+      roleId: 'ROLE',
+      image: 'A',
+      positionId: 'B',
+
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
