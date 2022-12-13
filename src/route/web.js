@@ -1,5 +1,8 @@
-import express from "express";
+import express, { Router } from "express";
 import homeController from "../controllers/homeController";
+import userController from "../controllers/userController";
+import doctorController from "../controllers/doctorController";
+
 let router = express.Router();
 let initWebRoutes = (app) => {
     router.get('/', homeController.getHomePage);
@@ -13,6 +16,16 @@ let initWebRoutes = (app) => {
     router.get('/edit-crud', homeController.getEditCRUD);
     router.post('/put-crud', homeController.putCRUD);
     router.get('/delete-crud', homeController.deleteCRUD);
+
+    router.post('/api/login', userController.handleLogin);
+    router.get('/api/get-all-user', userController.handleGetAllUsers);
+    router.post('/api/create-new-user', userController.handleCreateNewUsers);
+    router.put('/api/edit-user', userController.handleEditUser);
+    router.delete('/api/delete-user', userController.handleDeleteUser);
+    //restAPI
+    router.get('/api/allcode', userController.getAllCode);
+
+    router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
 
     return app.use("/", router)
 }
